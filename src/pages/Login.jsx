@@ -17,11 +17,9 @@ function Login() {
           <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <button type="submit">Login</button>
         </form>
-
         <p>Don't have an account? <Link to="/register">Register</Link></p>
       </div>
     </div>
   );
 }
-
 export default Login;
