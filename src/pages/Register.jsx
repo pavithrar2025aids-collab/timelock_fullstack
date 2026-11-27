@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerschema } from "../components/FormSchema/registerschema";
 function Register() {
-  const {register,handleSubmit,formState:{ errors }} = useForm({ resolver: zodResolver(registerschema)
+  const {register,handleSubmit,formState:{ errors }} = useForm({ resolver : zodResolver(registerschema)
   });
   function onSubmit(data) {
     console.log(data);
@@ -23,7 +23,7 @@ function Register() {
           <p>{errors.password?.message}</p>
           <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <Link to="/">Login</Link></p>
+          <p>Already have an account? <Link to="/">Login</Link></p>
       </div>
     </div>
   );
