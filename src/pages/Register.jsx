@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerschema } from "../components/FormSchema/registerschema";
+import { useNavigate } from "react-router-dom";
 function Register() {
+  const navigate =useNavigate();
   const {register,handleSubmit,formState:{ errors }} = useForm({ resolver : zodResolver(registerschema)
   });
   function onSubmit(data) {
     console.log(data);
+    alert("Registration successfull")
+    navigate("/",{
+      state:data
+    })
   }
   return (
     <div className="login-container">
@@ -15,7 +21,7 @@ function Register() {
         <h1>TIMELOCK</h1>
         <p>Create your account</p>
         <form onSubmit={handleSubmit(onSubmit)}>
-         <input type="name" placeholder="Enter your name" {...register("/name")}/>
+         <input type="name" placeholder="Enter your name" {...register("name")}/>
          <p>{errors.name?.message}</p>
           <input type="email" placeholder="Enter your email" {...register("email")} />
           <p>{errors.email?.message}</p>
